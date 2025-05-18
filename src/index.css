@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-gray-900 dark:text-gray-100 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen transition-all duration-500;
+  }
+}
+
+@layer components {
+  .sound-button {
+    @apply relative w-full p-6 rounded-2xl text-white font-medium
+    transition-all duration-300 transform hover:scale-105 active:scale-95
+    hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.2)]
+    dark:hover:shadow-[0_20px_40px_-12px_rgba(255,255,255,0.1)]
+    focus:outline-none focus:ring-4 focus:ring-opacity-50;
+  }
+  
+  .category-button {
+    @apply px-6 py-3 rounded-full font-medium 
+    transition-all duration-300 transform
+    hover:-translate-y-1 active:translate-y-0
+    hover:shadow-[0_10px_20px_-8px_rgba(0,0,0,0.15)]
+    dark:hover:shadow-[0_10px_20px_-8px_rgba(255,255,255,0.1)];
+  }
+
+  .sound-wave span {
+    @apply w-1 h-4 bg-white/80 rounded-full inline-block mx-0.5;
+  }
+}
+
+@layer utilities {
+  .animate-soundwave {
+    animation: soundwave 1s ease-in-out infinite;
+  }
+  
+  @keyframes soundwave {
+    0%, 100% {
+      transform: scaleY(0.3);
+    }
+    50% {
+      transform: scaleY(1);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .glass-effect {
+    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg;
+  }
+}
